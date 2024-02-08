@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Log</title>
+</head>
+<body>
+    <main>
+        {% if data %}
+            {% for x in data %}
+                <ul>
+                    <li>Name: {{x.name}}</li>
+                    <li>Email: {{x.mail}}</li>
+                    <li>About: {{x.choice}}</li>
+                    <li>Message: {{x.message}}</li>
+                </ul>
+            {% endfor %}
+        {% else %}
+            <p>No Data!</p>
+        {% endif %}
+    </main>
+</body>
+</html>

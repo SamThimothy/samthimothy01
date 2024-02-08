@@ -1,0 +1,56 @@
+{% extends 'app2/base.html' %}
+{% block base %}
+
+<nav id="navbar" class="home">
+    {% if request.user.is_authenticated %}
+    <p>{{wish}} {{request.user|title}}</p>
+    <p>
+        <a href="/">Home</a>
+        <a href="/app2/logout">Logout</a>
+    </p>
+
+    
+    {% else %}
+    <a href="/app2/login">Login</a>
+    {% endif %}
+</nav>
+<section class="home">
+    <div id="home-page">
+
+        <div id="add-button">
+
+            <h1 class="absolute">Tasks</h1>
+            
+            <p>You have {{count}} incomplete task{{count|pluralize:'s'}}</p>
+            <p><a href="/app2/task-create">&#10009;</a></p>
+        </div>
+
+
+        <form method="get">
+            <input type="text" name="search-area" value="{{search_input}}" placeholder="Search">
+            <input type="submit" value="Search">
+        </form>
+
+
+        {% if tasks %}
+        {% for x in tasks %}
+            {% if x.complete %}
+                <ul id="task-complete">
+                    <li class="complete-list items"><div style="height: 1rem;width: 1rem;background-color: green;border-radius: 50%;display: inline-block;margin-right: 1rem;"></div><a href="task-update/{{x.id}}">{{x.title|title}}</a></li>
+                    <li class="delete"><a href="task-delete/{{x.id}}">&#10006;</a></li>
+                </ul>
+            {% else %}
+                <ul id="task-incomplete">
+                    <li class="items" ><div style="height: 1rem;width: 1rem;background-color:dimgrey;border-radius: 50%;display: inline-block;margin-right: 1rem;"></div><a href="task-update/{{x.id}}">{{x.title|title}}</a></li>
+                    <li class="delete"><a href="task-delete/{{x.id}}">&#10006;</a></li>
+                </ul>
+            {% endif %}
+
+        {% endfor %}
+        {% else %}
+        <p>No Task Available</p>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}

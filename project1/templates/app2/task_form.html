@@ -1,0 +1,24 @@
+{% extends 'app2/base.html' %}
+{% block base %}
+
+<section class="home">
+    <div id="update-box">
+        <a href="/app2">&#8592 Back</a><br>
+
+        <form method="POST" id="update-form">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit">
+        </form>
+    </div>
+    
+</section>
+
+<script>
+
+    let lastp=document.getElementsByTagName('p')
+    lastp[2].style.display='block'
+
+</script>
+
+{% endblock %}

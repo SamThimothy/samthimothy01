@@ -1,0 +1,56 @@
+{% extends 'app2/base.html' %}
+{% block base %}
+
+<section>
+    <div id="login-box">
+        <form method="post">
+
+            <h1>Login</h1>
+            {% csrf_token %}
+            <!-- {{form.as_p}} -->
+            <p>
+                <label for="">{{form.username.label}}</label>
+                {{form.username}}
+            </p>
+            <p>
+                <label for="">{{form.password.label}}</label>
+                {{form.password}}
+            </p>
+            
+            {{form.non_field_errors}}
+            <button type="submit">Login</button>
+            <div id="register-link">
+                <p>Don't have an account? <a href="/app2/signup">Register</a></p>
+            </div>
+            <a class="back-button" href="/">&#8592 Back</a>
+
+            
+        </form>
+        
+    </div>
+</section>
+
+<script>
+    let label=document.getElementsByTagName('label')
+    label[0].textContent='Username'
+    label[1].textContent='Password'
+
+    let input=document.getElementsByTagName('input')
+    input[1].setAttribute('placeholder','Enter Name')
+    input[2].setAttribute('placeholder','Enter Password')
+
+    let x=document.getElementsByTagName('button')
+    x[0].style.background='#1471af'
+    
+
+    // let b=document.getElementsByTagName('ul')
+    // b[0].style.color='red'
+    // b[0].style.fontSize='0.7rem'
+    // b[0].style.width='70%'
+    // b[0].style.lineHeight='1rem'
+    // b[0].style.textAlign='center'
+    // b[0].style.display='flex'
+
+</script>
+
+{% endblock %}

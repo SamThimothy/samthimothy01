@@ -1,0 +1,21 @@
+{% extends 'app2/base.html' %}
+{% block base %}
+
+
+<section class="home">
+
+    <div id="delete-box">
+        <a href="/app2/">&#8592 Back</a><br>
+        <form method="post" id="delete-form">
+            <p>Do You Want To Delete  " {{task.title|title}} " ?</p>
+
+            {% csrf_token %}
+            {{form.as_p}}
+            <p>
+                <input type="submit" value="Delete">
+            </p>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

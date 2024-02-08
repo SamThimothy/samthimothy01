@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'app1/base.html' %}
+{% block base %}
+
+    <section id="contact">
+        <div id="contact-detail">
+
+            <h2>Contact Me</h2><br>
+            <h3>Do you have any questions? Fill out the form, and I'll respond to you soon!</h3><br>
+            <p>Feel free to ask or inquire about anything. I hope to be a resource and assist you in your journey in any way possible.</p><br>
+            <p>Similarly, if you are a recruiter, please use this form or email me directly at <a href="mailto:samthimothy502@gmailcom">Samthimothy502@gmail.com</a></p>
+            
+        </div>
+
+        <div id="contact-form">
+            <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <div>
+
+                    <input type="submit" value="Send">
+                </div>
+            </form>
+        </div>
+
+    </section>
+
+
+    <script>
+
+        let input=document.getElementsByTagName('input')
+        input[1].setAttribute('placeholder','Enter Name')
+        input[2].setAttribute('placeholder','Enter Email')
+
+        let textarea=document.getElementsByTagName('textarea')
+        textarea[0].setAttribute('placeholder','Drop Your Valuable Message!')
+
+    </script>
+
+{% endblock %}

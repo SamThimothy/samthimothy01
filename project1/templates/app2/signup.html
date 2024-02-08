@@ -1,0 +1,56 @@
+{% extends 'app2/base.html' %}
+{% block base %}
+
+<section>
+
+    <div id="register-box">
+        
+        <form method="post">
+
+            <h1>Signup</h1>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            
+            <p>
+                <label for="">{{form.username.label}}</label>
+                {{form.username}}
+            </p>
+            {{form.username.errors}}
+
+            <p>
+                <label for="">{{form.password1.label}}</label>
+                {{form.password1}}
+            </p>
+            <p>
+                <label for="">{{form.password2.label}}</label>
+                {{form.password2}}
+            </p>
+
+            {{form.password2.errors.as_ul}}
+
+            <button type="submit">Signup</button>
+            <div id="login-link">
+                <p>Already have an account? <a href="/app2/login">Login</a></p>
+            </div>
+            <a class="back-button" href="/">&#8592 Back</a>
+
+        </form>
+    </div>
+    <script>
+        let label=document.getElementsByTagName('label')
+        label[0].textContent='Username'
+        label[1].textContent='Password'
+        label[2].textContent='Password Confirmation'
+    
+        let input=document.getElementsByTagName('input')
+        input[1].setAttribute('placeholder','Enter Name')
+        input[2].setAttribute('placeholder','Enter Password')
+        input[3].setAttribute('placeholder','Enter Password Again')
+    
+        let x=document.getElementsByTagName('button')
+        x[0].style.background='#1471af'
+    </script>
+
+</section>
+
+{% endblock %}

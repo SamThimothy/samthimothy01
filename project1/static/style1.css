@@ -1,0 +1,297 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img{
+    height: 200px;
+    width: auto;
+}
+
+body{
+    background-color: #1471af;
+    color:whitesmoke ;
+    font-family: 'hansen Grotesk', sans-serif;
+    line-height: 1.5rem;
+}
+
+main{
+    padding: 1rem;
+}
+
+h1{
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+#navbar{
+    position: sticky;
+    top: 0;
+    background-color: #1471af;
+}
+
+#navbar ul{
+    list-style-type: none;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+li a:link,
+#logo a:link{
+    text-decoration: none;
+}
+
+#logo a:link{
+    color: whitesmoke;
+}
+
+li a:link{
+    color: black;
+}
+
+
+
+#logo a:visited{
+    color:whitesmoke;
+}
+
+li a:visited{
+    color: black;
+}
+
+li a:hover{
+    color:whitesmoke ;
+}
+
+
+.absolute{
+    position: absolute;
+    left: -99999px;
+}
+
+figure{
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+#bio{
+    padding: 0 1.5rem 1.5rem;
+    text-align: justify;
+}
+
+#bio p{
+    font-weight: bold;
+}
+
+#contact{
+    line-height: 2rem;
+    padding: 2rem;
+}
+
+#contact-detail{
+    text-align: justify;
+}
+
+#contact-detail a{
+    color: black;
+}
+
+#contact-detail a:hover{
+    color: whitesmoke   ;
+}
+
+#contact-form form p label,
+#contact-form form p input{
+    display: block;
+}
+
+#contact-form form p input{
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+#contact-form p{
+    line-height: 3rem;
+}
+
+#contact-form form p textarea{
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+#contact-form form div input{
+    padding: 0.5rem 0.9rem;
+    border-radius: 10px;
+    background-color:green;
+    color: whitesmoke;
+}
+
+#intro{
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    text-align: justify;
+}
+
+#intro h2{
+    padding: 0 0 1rem;
+}
+
+#p1{
+    text-indent: 50px;
+}
+
+#regards{
+    text-align: center;
+}
+
+#disclaimer{
+    background-color: whitesmoke;
+    color: #1471af;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 10px black;
+    text-align: justify;
+    text-indent: 50px;
+}
+
+
+
+#footer{
+    padding: 0 0 0.7rem;
+    text-align: center;
+    background-color: #1471af;
+    font-size: 0.7rem;
+}
+
+
+@media (min-width:768px){
+    body{
+        font-size: 1.2rem;
+    }
+    main{
+        display: grid;
+        grid-template-areas: 
+        "h  n"
+        "p  p"
+        "i  i"
+        "d  d"
+        "c  c"
+        "f f";
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #contact{
+        grid-area: c;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    h1{
+        grid-area: h;
+        text-wrap: nowrap;
+        text-align: start;
+    }
+
+    #navbar ul{
+        grid-area: n;
+        justify-content:space-between;
+        font-size: 1rem;
+        padding: 0;
+    }
+
+    #bio{
+        grid-area: p;
+
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    #bio p{
+        font-size: 1.5rem;
+        text-align: left;
+        line-height: 2rem;
+        word-spacing: .5rem;
+        padding: 1rem;
+
+    }
+
+    #intro{
+        grid-area: i;
+        
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #intro h2{
+        display: inline-block;
+    }
+
+    #intro p{
+        text-align: left;
+        padding: 1rem;
+    }
+
+    
+    #disclaimer{
+        grid-area: d;
+
+        background-color: whitesmoke;
+        padding: 1.5rem;
+        color: #1471af;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        text-indent: 50px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        width: 100%;
+
+    }
+
+    footer{
+        grid-area: f;
+    }
+
+    h1,
+    #navbar{
+        padding: 1.5rem;
+    }
+
+    #navbar{
+        background: transparent;
+        position: static;
+    }
+    
+
+}
+
+@media (min-width:1024px){
+    #bio p{
+        font-size: 2rem;
+        line-height: 2.5rem;
+        word-spacing: .5rem;
+    }
+
+    #intro{
+        box-shadow: 0 0 5px black;
+        margin-bottom: 1.5rem;
+        border-radius: 20px;
+    }
+
+    #navbar ul{
+        justify-content: space-evenly;
+    }
+}
